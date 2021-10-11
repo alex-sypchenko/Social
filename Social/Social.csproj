@@ -13,4 +13,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Molecules\" />
+    <Folder Include="Atoms\" />
+    <Folder Include="Pages\" />
+  </ItemGroup>
+
 </Project>

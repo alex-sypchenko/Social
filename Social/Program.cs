@@ -9,7 +9,7 @@ namespace Social
         static void Main(string[] args)
         {
             DatabaseFiller filler = new DatabaseFiller();
-            filler.FillingDatabese();
+            //filler.FillingDatabese();
 
             using (ApplicationContext db = new ApplicationContext())
             {
@@ -21,14 +21,13 @@ namespace Social
                 }
 
                 Console.WriteLine("Список подписчиков пользователя 0:");
-                var followers = Query.UserFollowers.GetFollowers(db.UserProfiles.FirstOrDefault());
-                if(followers != null)
+                var followers = Query.ToUsers.GetFollowers(db.UserProfiles.FirstOrDefault());
+
+                foreach (Followers u in followers)
                 {
-                    foreach (UserProfile u in followers)
-                    {
-                        Console.WriteLine($"{u.Id}.{u.Name}");
-                    }
+                    Console.WriteLine($"{u.Id}.{u.WhoFollow.Name}");
                 }
+
             }
 
             using (ApplicationContext db = new ApplicationContext())
