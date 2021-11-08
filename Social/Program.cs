@@ -28,6 +28,8 @@ namespace Social
                     Console.WriteLine($"{u.Id}.{u.WhoFollow.Name}");
                 }
 
+                var test = Query.ToPosts.SearchPostWithTag("tag1");
+
             }
 
             using (ApplicationContext db = new ApplicationContext())

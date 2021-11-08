@@ -22,11 +22,11 @@ namespace Social.Query
             }
         }
 
-        public static List<PostTags> SearchPostWithTag(string text)
+        public static string SearchPostWithTag(string text)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                return db.PostTags.Include(p => p.Tag).Where(p => p.Tag.Tag == text).ToList();
+                return db.PostTags.Include(p => p.Tag).Include(p => p.Post).Where(p => p.Tag.Tag == text).Select(p => p.Post).ToQueryString();
             }
         }
     }

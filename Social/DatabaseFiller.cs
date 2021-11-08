@@ -12,6 +12,7 @@ namespace Social
         {
             using (ApplicationContext db = new ApplicationContext())
             {
+                db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
 
                 UserProfile[] users = new UserProfile[5];
@@ -27,22 +28,36 @@ namespace Social
                 followers[2] = new Followers { ForWho = users[1], WhoFollow = users[0] };
                 followers[3] = new Followers { ForWho = users[2], WhoFollow = users[0] };
 
-                Tags[] tags = new Tags[3];
+                Tags[] tags = new Tags[1000];
                 tags[0] = new Tags { Tag = "tag1" };
                 tags[1] = new Tags { Tag = "tag2" };
                 tags[2] = new Tags { Tag = "tag3" };
+                for(int i = 3; i < 1000; i++)
+                {
+                    tags[i] = new Tags { Tag = $"tag{i}" };
+                }
+                
 
                 Posts[] posts = new Posts[3];
                 posts[0] = new Posts { Name = "post1", Author = users[0], Description = "text1" };
                 posts[1] = new Posts { Name = "post2", Author = users[1], Description = "text2" };
                 posts[2] = new Posts { Name = "post3", Author = users[1], Description = "text3" };
 
-                PostTags[] postTags = new PostTags[5];
+                PostTags[] postTags = new PostTags[1000];
                 postTags[0] = new PostTags { Tag = tags[0], Post = posts[0] };
                 postTags[1] = new PostTags { Tag = tags[1], Post = posts[0] };
                 postTags[2] = new PostTags { Tag = tags[1], Post = posts[1] };
                 postTags[3] = new PostTags { Tag = tags[2], Post = posts[1] };
                 postTags[4] = new PostTags { Tag = tags[2], Post = posts[2] };
+                for (int i = 5; i < 500; i++)
+                {
+                    postTags[i] = new PostTags { Tag = tags[i], Post = posts[2] };
+                }
+                for (int i = 500; i < 1000; i++)
+                {
+                    postTags[i] = new PostTags { Tag = tags[i], Post = posts[1] };
+                }
+
 
                 Comments[] comments = new Comments[6];
                 comments[0] = new Comments { Post = posts[0], Author = users[1], Text = "comment1" };

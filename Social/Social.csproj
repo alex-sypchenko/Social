@@ -6,17 +6,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Atoms\**" />
+    <Compile Remove="Molecules\**" />
+    <Compile Remove="Pages\**" />
+    <EmbeddedResource Remove="Atoms\**" />
+    <EmbeddedResource Remove="Molecules\**" />
+    <EmbeddedResource Remove="Pages\**" />
+    <None Remove="Atoms\**" />
+    <None Remove="Molecules\**" />
+    <None Remove="Pages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Molecules\" />
-    <Folder Include="Atoms\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
 
 </Project>
