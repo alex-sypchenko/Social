@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Social.Domain
+﻿namespace Social.Domain
 {
     public class Followers : BaseEntity
     {
