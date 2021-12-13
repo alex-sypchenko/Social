@@ -33,6 +33,11 @@ namespace Social.Persistence
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserProfile>().HasAlternateKey(u => u.Login);
+        }
+
         public async Task<int> SaveChangesAsync()
         {
             return await base.SaveChangesAsync();

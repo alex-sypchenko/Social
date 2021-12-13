@@ -13,11 +13,11 @@ namespace Social.Persistence
                 db.Database.EnsureCreated();
 
                 UserProfile[] users = new UserProfile[5];
-                users[0] = new UserProfile { Name = "user1" };
-                users[1] = new UserProfile { Name = "user2" };
-                users[2] = new UserProfile { Name = "user3" };
-                users[3] = new UserProfile { Name = "user4" };
-                users[4] = new UserProfile { Name = "user5" };
+                users[0] = new UserProfile { Name = "user1", Login = "user1", Password = "user11" };
+                users[1] = new UserProfile { Name = "user2", Login = "user2", Password = "user22" };
+                users[2] = new UserProfile { Name = "user3", Login = "user3", Password = "user33" };
+                users[3] = new UserProfile { Name = "user4", Login = "user4", Password = "user44" };
+                users[4] = new UserProfile { Name = "user5", Login = "user5", Password = "user55" };
 
                 Followers[] followers = new Followers[4];
                 followers[0] = new Followers { ForWho = users[0], WhoFollow = users[1] };

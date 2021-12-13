@@ -6,6 +6,8 @@ namespace Social.Domain
     {
         public string Name { get; set; }
         public string Photo { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
 
         public List<Posts> Posts { get; set; } = new List<Posts>();
         public List<Comments> Comments { get; set; } = new List<Comments>();
